@@ -1,12 +1,30 @@
 # Artificial-Neural-Network
 Introduction to Neural Network
 
-### Caffe Setup using Ubuntu 18 Environment
-```bash
-# Ubuntu Package Requirements
-$ sudo apt install python-pip
-$ sudo apt install python-pip3
+### Octave and Caffe Setup using Ubuntu 18 Environment
 
+```bash
+# Ubuntu Package Requirements (you may skip this and use this if necessary)
+# selected directory ~\Desktop
+$ cd Desktop
+
+# Install Octave
+$ sudo apt-add-repository ppa:octave/stable
+$ sudo apt-get update
+$ sudo apt-get install octave
+
+# Install Git
+$ sudo apt install git
+
+# Install pip (choose one, v3 recommended)
+$ sudo apt install python-pip
+$ sudo apt install python3-pip
+
+# Install vim (check out vim basic xmod manipulation below)
+$ sudo apt install vim
+```
+Caffe setup proper. For complete details, see [BVLC](http://caffe.berkeleyvision.org/install_apt.html)
+```bash
 $ sudo apt-get install -y --no-install-recommends libboost-all-dev
 $ sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libboost-all-dev libhdf5-serial-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler
 $ git clone https://github.com/BVLC/caffe
