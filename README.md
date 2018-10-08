@@ -93,3 +93,13 @@ d - delete - delete
 :w - save
 :x - save and exit
 ```
+
+### Other Troubleshooting Guides
+> Check failed: registry.count(type) == 1 (0 vs. 1) Unknown layer type: Python (known types:
+```bash
+$ sudo vim Makefile.config
+Uncomment WITH_PYTHON_LAYER := 1
+$ make clean
+$ make all
+$ make pycaffe
+```

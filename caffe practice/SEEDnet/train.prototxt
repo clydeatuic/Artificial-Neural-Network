@@ -1,0 +1,123 @@
+name: "MLPNet"
+
+layer {
+  name: "SomCustomData"
+  type: "Python"
+  top: "data"
+  python_param {
+    module: "CustomData"
+    layer: "CustomData"
+    param_str: "1,7"
+  }
+}
+
+layer {
+  name: "SomCustomLabel"
+  type: "Python"
+  top: "label"
+  python_param {
+    module: "CustomData"
+    layer: "CustomData"
+    param_str: "1,1"
+  }
+}
+
+layer {
+  name: "layer_1"
+  type: "InnerProduct"
+  bottom: "data"
+  top: "layer_1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 5
+    weight_filler {
+      type: "xavier" # "gaussian"
+      # std: 1
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+
+layer {
+  name: "sigmoid1"
+  type: "TanH"
+  bottom: "layer_1"
+  top: "layer_1"
+}
+
+layer {
+  name: "layer_2"
+  type: "InnerProduct"
+  bottom: "layer_1"
+  top: "layer_2"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 5
+    weight_filler {
+      type: "xavier"
+      # std: 1
+    }
+  bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+
+layer {
+  name: "sigmoid2"
+  type: "TanH"
+  bottom: "layer_2"
+  top: "layer_2"
+}
+
+layer {
+  name: "classifier"
+  type: "InnerProduct"
+  bottom: "layer_2"
+  top: "classifier"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  inner_product_param {
+    num_output: 3
+    weight_filler {
+      type: "xavier"
+      # std: 1
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+
+layer {
+  name: "loss"
+  type: "SoftmaxWithLoss"
+  bottom: "classifier"
+  bottom: "label"
+  top: "loss"
+}
