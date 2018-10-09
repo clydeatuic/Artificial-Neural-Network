@@ -119,5 +119,5 @@ $ alias octave="$HOME/.local/octave/bin/octave -q"
 # Configure octave to a nicer defaults
 # DONE!
 ```
-[Download GNU Octave Source here](ftp://ftp.gnu.org/gnu/octave/)
-[Octave Nice Defaults](https://www.scivision.co/gnu-octave-octaverc-default-suggested/)
+* Download GNU Octave Source here > ftp://ftp.gnu.org/gnu/octave/
+* [Octave Nice Defaults](https://www.scivision.co/gnu-octave-octaverc-default-suggested/)
