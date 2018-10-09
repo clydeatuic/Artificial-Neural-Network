@@ -94,7 +94,7 @@ d - delete - delete
 :x - save and exit
 ```
 
-### Other Troubleshooting Guides
+### Other fixes
 > Check failed: registry.count(type) == 1 (0 vs. 1) Unknown layer type: Python (known types:
 ```bash
 $ sudo vim Makefile.config
@@ -103,3 +103,21 @@ $ make clean
 $ make all
 $ make pycaffe
 ```
+> Update Octave (e.g. from 4.2.2 to 4.4.* )
+```bash
+#This procedure was tested with Ubuntu 18 (from scivision)
+$ sudo apt install g++ make gawk gfortran gnuplot texi2html icoutils libxft-dev gperf flex libbison-dev libqhull-dev libglpk-dev libcurl4-gnutls-dev librsvg2-dev libqrupdate-dev libgl2ps-dev libarpack2-dev libreadline-dev libncurses-dev libhdf5-dev llvm-dev default-jdk texinfo libfftw3-dev libgraphicsmagick++1-dev libfreeimage-dev transfig epstool librsvg2-bin libosmesa6-dev libsndfile-dev lzip libatlas-base-dev liblapack-dev libsundials-dev
+$ sudo apt install qtbase5-dev qttools5-dev libqscintilla2-qt5-dev
+# Download GNU Octave source see link below and extract
+$ tar -xf octave-4*.lz
+$ mkdir ~/.local/octave
+$ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+$ ./configure --prefix=$HOME/.local/octave
+$ make -j2
+$ make install
+$ alias octave="$HOME/.local/octave/bin/octave -q"
+# Configure octave to a nicer defaults
+# DONE!
+```
+[Download GNU Octave Source here](ftp://ftp.gnu.org/gnu/octave/)
+[Octave Nice Defaults](https://www.scivision.co/gnu-octave-octaverc-default-suggested/)
