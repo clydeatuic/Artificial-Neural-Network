@@ -121,3 +121,11 @@ $ alias octave="$HOME/.local/octave/bin/octave -q"
 ```
 * Download GNU Octave Source here > ftp://ftp.gnu.org/gnu/octave/
 * [Octave Nice Defaults](https://www.scivision.co/gnu-octave-octaverc-default-suggested/)
+
+### Other cool stuff
+```bash
+$ htop
+$ peek
+$ sudo apt install python-pydot python-pydot-ng graphviz
+$ python draw_net.py train.prototxt train.png
+```

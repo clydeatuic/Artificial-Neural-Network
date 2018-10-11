@@ -23,6 +23,14 @@ for line in open("../train_seeds.csv"):		# load line per line the features and t
         feature_list.append(feat)		# append to the list of features
         label_list.append(label)		# append to the list of labels
 
+# print "Feature list"
+# f = np.array(feature_list)
+# print f.shape # (147, 1, 7)
+
+# print "Label list"
+# l = np.array(label_list)
+# print l.shape # (147)
+
 solver = caffe.SGDSolver("solver.prototxt")	# load the solver -- the solver indicates the architecture prototxt (see the solver.prototxt itself)
 # solver.net.copy_from("train_output/MLPnet.caffemodel")		# uncomment this IF you have the initial values for the solver -- otherwise, Caffe will randomly initialize your system
 EPOCHS = 1000					# the trainer will look at 1000 times on your training set
